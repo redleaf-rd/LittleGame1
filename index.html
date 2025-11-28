@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>快樂拼圖 (Happy Jigsaw)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="app">
+        <!-- Gallery Screen -->
+        <div id="gallery-screen" class="screen active">
+            <h1>請選擇一張圖片</h1>
+            <div class="gallery-grid" id="gallery-grid">
+                <!-- Upload Button -->
+                <div class="gallery-item upload-item" id="upload-btn">
+                    <div class="upload-content">
+                        <span class="upload-icon">➕</span>
+                        <span>上傳圖片</span>
+                    </div>
+                    <input type="file" id="image-upload" accept="image/*" style="display: none;">
+                </div>
+                <!-- Images will be injected here -->
+            </div>
+        </div>
+
+        <!-- Difficulty Screen -->
+        <div id="difficulty-screen" class="screen hidden">
+            <h1>選擇難度</h1>
+            <div class="preview-container">
+                <img id="selected-preview" src="" alt="Preview">
+            </div>
+            <div class="difficulty-buttons">
+                <button class="btn difficulty-btn" data-pieces="30">簡單 (30片)</button>
+                <button class="btn difficulty-btn" data-pieces="60">中等 (60片)</button>
+                <button class="btn difficulty-btn" data-pieces="100">困難 (100片)</button>
+            </div>
+            <button class="btn back-btn" id="back-to-gallery">返回</button>
+        </div>
+
+        <!-- Game Screen -->
+        <div id="game-screen" class="screen hidden">
+            <div class="game-header">
+                <button class="btn icon-btn" id="back-to-menu">🏠 選單</button>
+                <div class="timer" id="timer">00:00</div>
+                <button class="btn icon-btn" id="toggle-hint">👁️ 提示</button>
+            </div>
+            <div class="canvas-container" id="canvas-container">
+                <canvas id="puzzle-canvas"></canvas>
+            </div>
+        </div>
+
+        <!-- Victory Screen -->
+        <div id="victory-screen" class="screen hidden">
+            <div class="victory-content">
+                <h1>恭喜完成！</h1>
+                <div class="stars">
+                    <span>⭐</span><span>⭐</span><span>⭐</span>
+                </div>
+                <p>你真棒！</p>
+                <button class="btn big-btn" id="play-again">再玩一次</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="confetti.js"></script>
+    <script src="game.js"></script>
+</body>
+
+</html>
