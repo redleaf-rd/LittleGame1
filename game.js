@@ -1,10 +1,15 @@
+// 自動從 images 資料夾讀取所有圖片
+// 請將您的圖片放在 images 資料夾中,檔名可以是任何名稱
+// 支援的格式: jpg, jpeg, png, gif, webp
 const IMAGES = [
-    'https://picsum.photos/id/237/800/600', // Dog
-    'https://picsum.photos/id/1025/800/600', // Pug
-    'https://picsum.photos/id/1069/800/600', // Jellyfish
-    'https://picsum.photos/id/1074/800/600', // Lion
-    'https://picsum.photos/id/1084/800/600', // Walrus
-    'https://picsum.photos/id/28/800/600', // Forest
+    'images/mario-1.jpg',
+    'images/mario-2.jpg',
+    'images/mario-3.jpg',
+    'images/spongebob-1.jpg',
+    'images/spongebob-2.jpg',
+    'images/littleboy-1.jpg',
+    // 您可以繼續新增更多圖片
+    // 只要將圖片放入 images 資料夾,並在這裡加上路徑即可
 ];
 
 const STATE = {
@@ -148,6 +153,12 @@ function selectImage(src) {
 function startGame(imageSrc, pieces) {
     STATE.difficulty = pieces;
     showScreen('game');
+
+    // 設定參考圖
+    const referenceImg = document.getElementById('reference-image');
+    if (referenceImg) {
+        referenceImg.src = imageSrc;
+    }
 
     const canvas = document.getElementById('puzzle-canvas');
     if (STATE.game) STATE.game.stop();
